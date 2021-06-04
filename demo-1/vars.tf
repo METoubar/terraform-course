@@ -1,23 +1,19 @@
-variable "PATH_TO_PRIVATE_KEY" {
-  default = "ansiblekey"
+variable "AWS_ACCESS_KEY" {
 }
 
-variable "PATH_TO_PUBLIC_KEY" {
-  default = "ansiblekey.pub"
+variable "AWS_SECRET_KEY" {
 }
 
 variable "AWS_REGION" {
-  type    = string
-  default = "us-east-2"
+  default = "eu-west-1"
 }
 
 variable "AMIS" {
   type = map(string)
   default = {
-    us-east-1 = "ami-09e67e426f25ce0d7"
-    us-east-2 = "ami-00399ec92321828f5"
-    us-west-1 = "ami-0d382e80be7ffdae5"
-    us-west-2 = "ami-03d5c68bab01f3496"
+    us-east-1 = "ami-13be557e"
+    us-west-2 = "ami-06b94666"
+    eu-west-1 = "ami-0d729a60"
   }
 }
 
