@@ -1,0 +1,68 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_default_subnet.default_az1 (expand)" [label = "aws_default_subnet.default_az1", shape = "box"]
+		"[root] aws_default_subnet.default_az2 (expand)" [label = "aws_default_subnet.default_az2", shape = "box"]
+		"[root] aws_default_subnet.default_az3 (expand)" [label = "aws_default_subnet.default_az3", shape = "box"]
+		"[root] aws_default_vpc.default (expand)" [label = "aws_default_vpc.default", shape = "box"]
+		"[root] aws_key_pair.mykey (expand)" [label = "aws_key_pair.mykey", shape = "box"]
+		"[root] module.consul.aws_instance.server (expand)" [label = "module.consul.aws_instance.server", shape = "box"]
+		"[root] module.consul.aws_security_group.consul (expand)" [label = "module.consul.aws_security_group.consul", shape = "box"]
+		"[root] output.consul-output" [label = "output.consul-output", shape = "note"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.AWS_REGION" [label = "var.AWS_REGION", shape = "note"]
+		"[root] var.PATH_TO_PRIVATE_KEY" [label = "var.PATH_TO_PRIVATE_KEY", shape = "note"]
+		"[root] var.PATH_TO_PUBLIC_KEY" [label = "var.PATH_TO_PUBLIC_KEY", shape = "note"]
+		"[root] aws_default_subnet.default_az1 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_default_subnet.default_az2 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_default_subnet.default_az3 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_default_vpc.default (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_key_pair.mykey (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_key_pair.mykey (expand)" -> "[root] var.PATH_TO_PUBLIC_KEY"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] module.consul (close)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.consul-output"
+		"[root] module.consul (close)" -> "[root] module.consul.output.server_address (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.aws_security_group.consul (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.ami (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.instance_type (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.key_name (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.key_path (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.region (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.servers (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.service_conf (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.service_conf_dest (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.subnets (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.tagName (expand)"
+		"[root] module.consul.aws_instance.server (expand)" -> "[root] module.consul.var.user (expand)"
+		"[root] module.consul.aws_security_group.consul (expand)" -> "[root] module.consul.var.platform (expand)"
+		"[root] module.consul.aws_security_group.consul (expand)" -> "[root] module.consul.var.vpc_id (expand)"
+		"[root] module.consul.output.server_address (expand)" -> "[root] module.consul.aws_instance.server (expand)"
+		"[root] module.consul.var.ami (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.instance_type (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.key_name (expand)" -> "[root] aws_key_pair.mykey (expand)"
+		"[root] module.consul.var.key_name (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.key_path (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.key_path (expand)" -> "[root] var.PATH_TO_PRIVATE_KEY"
+		"[root] module.consul.var.platform (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.region (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.region (expand)" -> "[root] var.AWS_REGION"
+		"[root] module.consul.var.servers (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.service_conf (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.service_conf_dest (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.subnets (expand)" -> "[root] aws_default_subnet.default_az1 (expand)"
+		"[root] module.consul.var.subnets (expand)" -> "[root] aws_default_subnet.default_az2 (expand)"
+		"[root] module.consul.var.subnets (expand)" -> "[root] aws_default_subnet.default_az3 (expand)"
+		"[root] module.consul.var.subnets (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.tagName (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.user (expand)" -> "[root] module.consul (expand)"
+		"[root] module.consul.var.vpc_id (expand)" -> "[root] aws_default_vpc.default (expand)"
+		"[root] module.consul.var.vpc_id (expand)" -> "[root] module.consul (expand)"
+		"[root] output.consul-output" -> "[root] module.consul.output.server_address (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.consul.aws_instance.server (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.AWS_REGION"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+
