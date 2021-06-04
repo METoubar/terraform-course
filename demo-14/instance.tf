@@ -11,8 +11,6 @@ resource "aws_instance" "example" {
   # the public SSH key
   key_name = aws_key_pair.mykeypair.key_name
 
-  user_data = data.template_cloudinit_config.cloudinit-example.rendered
-
   # role:
   iam_instance_profile = aws_iam_instance_profile.s3-mybucket-role-instanceprofile.name
 }

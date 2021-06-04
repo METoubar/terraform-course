@@ -115,4 +115,3 @@ resource "aws_route_table_association" "main-public-3-a" {
   route_table_id = aws_route_table.main-public.id
 }
 
-
